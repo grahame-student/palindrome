@@ -3,19 +3,19 @@
 
 int main(int argc, char **argv)
 {
-      ::testing::InitGoogleTest(&argc, argv);
-      return RUN_ALL_TESTS();
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
 
 namespace
 {
-    class TestLibPalindrome : public ::testing:: Test
+class TestLibPalindrome : public ::testing::Test
+{
+    void SetUp() override
     {
-        void SetUp() override
-        {
-        }
-    };
-}
+    }
+};
+} // namespace
 
 TEST_F(TestLibPalindrome, isPalindrome_Returnstrue_WhenInputStringIsEmpty)
 {
