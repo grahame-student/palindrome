@@ -28,4 +28,4 @@ jobs:
           
           cmake CMakeLists.txt || exit 1
           make || exit 1
-          ls -la .
+          ls -la ./tests
