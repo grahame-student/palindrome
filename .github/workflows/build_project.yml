@@ -19,12 +19,14 @@ jobs:
         run: |
           sudo apt-get install libgtest-dev
           pushd /usr/src/gtest
-          ls -la ./cmake
           sudo cmake CMakeLists.txt
           sudo make
+          pushd /usr/src/googletest/googletest
+          ls -la .
           sudo cp *.a /usr/lib
           sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a
           sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
+          popd
           popd
           
           cmake CMakeLists.txt || exit 1
