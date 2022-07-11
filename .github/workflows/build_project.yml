@@ -17,6 +17,12 @@ jobs:
         
       - name: Build project
         run: |
-          sudo apt-get install libgtest libgtest-dev
+          sudo apt-get install libgtest-dev && \
+          pushd /usr/src/gtest && \
+          sudo cmake CMakeLists.txt && \
+          sudo make && sudo cp *.a /usr/lib && \
+          sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a && \
+          sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a && \
+          popd
           cmake CMakeLists.txt || exit 1
           make || exit 1
