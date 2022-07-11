@@ -1,0 +1,39 @@
+---
+name: Build CCS project
+
+on:
+  push:
+    branches-ignore:
+      - 'dependabot/**'
+  pull_request:
+  
+jobs:
+  test_ccs_build:
+    runs-on: ubuntu-latest
+    name: Test CCS Build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: CCS build action step
+        uses: grahame-student/ccs_build@v0.0.20
+        with:
+          build-configuration: Debug
+
+      - name: Run unit tests
+        uses: grahame-student/gtest_action@v0.0.3
+        with:
+          test-path: 'src/tests'
+
+      - name: Generate coverage report        
+        uses: danielpalme/ReportGenerator-GitHub-Action@5.1.9
+        with:
+          reports: 'gcovr-report.xml'
+          targetdir: .
+
+      - name: Upload coverage report artifact
+        if: always()
+        uses: actions/upload-artifact@v2.2.3
+        with:
+          name: 'Coverage report'
+          path: .
