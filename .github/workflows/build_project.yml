@@ -19,7 +19,7 @@ jobs:
         run: |
           sudo apt-get install libgtest-dev
           pushd /usr/src/gtest
-          ls -la .
+          ls -la ./cmake
           sudo cmake CMakeLists.txt
           sudo make
           sudo cp *.a /usr/lib
