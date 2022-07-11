@@ -1,5 +1,4 @@
 find_package(GTest REQUIRED)
-find_package(gtest REQUIRED)
 
 include_directories (${PALINDROME_SOURCE_DIR}/includes)
 add_executable (Test main.cpp)
