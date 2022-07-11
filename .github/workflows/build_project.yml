@@ -17,6 +17,6 @@ jobs:
         
       - name: Build project
         run: |
-          apt-get install gtest
+          sudo apt-get install gtest gtest-dev
           cmake CMakeLists.txt || exit 1
           make || exit 1
