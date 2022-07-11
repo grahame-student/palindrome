@@ -28,4 +28,5 @@ jobs:
           
           cmake CMakeLists.txt || exit 1
           make || exit 1
-          ls -la ./tests
+          ./tests/Test || exit 1
+          gcovr --branches --xml-pretty -r . >> gcovr-report.xml
