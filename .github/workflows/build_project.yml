@@ -17,7 +17,7 @@ jobs:
         
       - name: Build project
         run: |
-          sudo apt-get install libgtest-dev
+          sudo apt-get install libgtest-dev gcovr
           pushd /usr/src/gtest
           sudo cmake CMakeLists.txt
           sudo make
@@ -30,3 +30,21 @@ jobs:
           make || exit 1
           ./tests/Test || exit 1
           gcovr --branches --xml-pretty -r . >> gcovr-report.xml
+
+      - name: Generate coverage report        
+        uses: danielpalme/ReportGenerator-GitHub-Action@5.1.9
+        with:
+          reports: '*-report.xml'
+          reporttypes: 'HtmlInline'
+          targetdir: reports
+
+      - name: Upload coverage report artifact
+        if: always()
+        uses: actions/upload-artifact@v2.2.3
+        with:
+          name: 'Coverage report'
+          path: |
+            ./src
+            ./includes
+            ./tests
+            ./reports
