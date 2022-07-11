@@ -1,8 +1,8 @@
-#ifndef LIBPALINDROME_H_
-#define LIBPALINDROME_H_
+#ifndef INCLUDES_LIBPALINDROME_H_
+#define INCLUDES_LIBPALINDROME_H_
 
 #include <string>
 
 bool isPalindrome(std::string inputString);
 
-#endif /* LIBPALINDROME_H_ */
+#endif /* INCLUDES_LIBPALINDROME_H_ */
