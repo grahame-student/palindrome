@@ -4,10 +4,10 @@ static std::string removeSpaces(std::string inputString);
 
 bool isPalindrome(std::string inputString)
 {
-    bool result = true;
-    inputString = removeSpaces(inputString);
+    bool result       = true;
+    inputString       = removeSpaces(inputString);
     uint32_t max_char = inputString.length() - 1;
-    uint32_t mid = inputString.length() / 2;
+    uint32_t mid      = inputString.length() / 2;
 
     for (uint32_t i = 0; i < mid; ++i)
     {
