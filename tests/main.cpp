@@ -46,3 +46,10 @@ TEST_F(TestLibPalindrome, isPalindrome_Returnstrue_WhenInputStringIsPalindromeAn
 {
     ASSERT_EQ(isPalindrome("OBBO"), true);
 }
+
+TEST_F(TestLibPalindrome, isPalindrome_Returnstrue_WhenInputStringIsPalindromeAndContainsSpaces)
+{
+    ASSERT_EQ(isPalindrome("was it a cat i saw"), true);
+}
+
+// Handle mixed case palindromes
