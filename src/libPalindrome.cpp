@@ -1,3 +1,5 @@
+#include <algorithm>
+
 #include "libPalindrome.h"
 
 static std::string removeSpaces(std::string inputString);
