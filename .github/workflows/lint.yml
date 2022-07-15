@@ -2,10 +2,7 @@
 name: Lint Project
 
 on:
-  push:
-    branches-ignore:
-      - 'dependabot/**'
-  pull_request:
+  workflow_call:
 
 jobs:
   super-lint:
