@@ -52,4 +52,7 @@ TEST_F(TestLibPalindrome, isPalindrome_Returnstrue_WhenInputStringIsPalindromeAn
     ASSERT_EQ(isPalindrome("was it a cat i saw"), true);
 }
 
-// Handle mixed case palindromes
+TEST_F(TestLibPalindrome, isPalindrome_Returnstrue_WhenInputStringIsPalindromeAndCharsAreMixedCase)
+{
+    ASSERT_EQ(isPalindrome("OBBo"), true);
+}

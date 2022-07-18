@@ -3,11 +3,14 @@
 #include "libPalindrome.h"
 
 static std::string removeSpaces(std::string inputString);
+static std::string lower(std::string inputString);
 
 bool isPalindrome(std::string inputString)
 {
-    bool result       = true;
-    inputString       = removeSpaces(inputString);
+    bool result = true;
+    inputString = removeSpaces(inputString);
+    inputString = lower(inputString);
+
     uint32_t max_char = inputString.length() - 1;
     uint32_t mid      = inputString.length() / 2;
 
@@ -29,4 +32,17 @@ static std::string removeSpaces(std::string inputString)
     inputString.erase(end_pos, inputString.end());
 
     return inputString;
+}
+
+static std::string lower(std::string inputString)
+{
+    char     result[inputString.length() + 1] = {0};
+    uint32_t pos                              = 0;
+    for (char &c : inputString)
+    {
+        result[pos] = std::tolower(c);
+        ++pos;
+    }
+    result[pos] = '\0';
+    return std::string(result);
 }
