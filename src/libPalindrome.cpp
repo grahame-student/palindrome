@@ -16,7 +16,7 @@ bool isPalindrome(std::string inputString)
 
     for (uint32_t i = 0; i < mid; ++i)
     {
-        if (inputString[i] != inputString[(max_char - i)])
+        if (inputString[i] != inputString[(max_char - i - 1)])
         {
             result = false;
             break;
